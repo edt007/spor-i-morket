@@ -122,3 +122,49 @@ mus/tastatur/touch og konsol er derfor **ikke browserverificeret**.
 HTML5-/CSS-validering er ikke gennemført; den installerede Tidy-version
 understøtter ikke HTML5. Ingen ændringer er foretaget i Praktisk info eller
 Book billetter, og ingen commits, push eller deployment er udført.
+
+## Praktisk info – implementering P01–P08
+
+Åbn `http://127.0.0.1:8000/praktisk-info.html` med den lokale server, eller brug
+PhpStorms browserpreview på `praktisk-info.html`.
+
+- P01: infokortene genbruger mørke Haunt AOE-overskrifter (#11120D) på orange
+  (#E5A53E), med eksisterende form og kant. Beregnet kontrast: 8,77:1.
+- P02: starttiderne er præciseret til "Starttider hver dag kl. 18.00–22.45."
+  Perioden er bevaret, og der angives ingen lukketid.
+- P03: FAQ'en bruger tre selvstændige native `details`/`summary`-elementer.
+  Hele spørgsmålsrækken er kontrollen, og plus/minus viser tilstanden. Flere
+  svar kan åbnes samtidig. Svarene har automatisk højde i dokumentflowet og
+  bruger Poppins. FAQ'en kræver ingen ny JavaScript eller animation.
+- P04: introduktion, spørgsmål og svar følger de godkendte tekster.
+- P05/P06: FAQ-punktet "Spørgsmål?" er fjernet. Kontaktområdet er bevaret med
+  `tel:+4522222222` og `mailto:kontakt@sporgennemmorket.dk`.
+- P07/P08: FAQ-listen er maksimalt 626 px og venstrestillet på desktop. På
+  mobil fylder den indholdsbredden; kort og kontaktoplysninger stables.
+  Navigation og footer genbruger eksisterende løsninger.
+
+FAQ-målet `praktisk-info.html#faq` **findes nu**. Oplevelsens eksisterende
+link matcher det og er ikke ændret. Dette erstatter de tidligere noters
+oplysning om, at FAQ-målet manglede. Book billetter er fortsat en skabelon
+uden bookingfunktion og er ikke implementeret i dette trin.
+
+### Kontrol af Praktisk info
+
+Figma-screenshot og de tre separate svarframes er læst. Ingen nye assets eller
+fonte er nødvendige. Kontrol af tagbalance, én h1, unikke ID'er, ID-referencer,
+filstier, fontfiler, kontaktdestinationer, JavaScript-syntaks og
+`git diff --check` består. Siden leveres med HTTP 200. De tre FAQ-elementer
+har ingen fælles `name`-gruppe og kan derfor være åbne uafhængigt.
+
+Beregnet kontrast fra CSS: kortoverskrifter 8,77:1, brødtekst på sidens baggrund
+16,97:1 og FAQ-tekst på den sammensatte baggrund cirka 14,47:1.
+Forsidens, Oplevelsens og Book billetternes HTML samt fælles JavaScript er
+sammenlignet med filerne før dette trin og er uændrede. Den tidligere CSS er
+uændret; nye regler er afgrænset til Praktisk info og dens FAQ-klasser.
+
+Der er fortsat ingen tilsluttet browser. Visuel sammenligning ved 1440 px,
+320/375/768/1024 px, zoom, overflow, tastatur/fokus, alle FAQ-åbningstilstande,
+klik på det direkte FAQ-link og konsol er derfor **ikke browserverificeret**.
+Fuld HTML5-/CSS-validering er ikke gennemført. Prøv især alle tre svar åbne
+samtidig, og kontrollér, at kontaktområde og footer skubbes ned. Brug Tab til
+spørgsmålene og Enter/Mellemrum til at åbne og lukke dem.

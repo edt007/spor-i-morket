@@ -200,3 +200,44 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
   .experience-map .safezone img { transform: none; }
   .oplevelsen .site-footer { margin-top: 48px; }
 }
+
+/* Praktisk info – P01–P08. Native details holder svarene i dokumentflowet.
+   Ingen fælles regler ændres; kort, navigation og kontaktområde genbruges. */
+.practical-intro { margin-top: 94px; }
+.practical-intro h1 { margin: 0; }
+.practical-intro > p { max-width: 734px; margin-top: 23px; font-size: 16px; line-height: 18px; font-weight: 700; }
+.practical-info .info-cards { margin-top: 96px; }
+.practical-info .info-card { min-height: 164px; justify-content: flex-start; padding: 22px 12px; gap: 8px; color: var(--background); }
+.practical-faq { margin-top: 84px; scroll-margin-top: 24px; }
+.practical-faq > h2 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font-weight: 400; }
+.faq-list { max-width: 626px; display: flex; flex-direction: column; gap: 26px; margin-top: 59px; }
+.faq-item { background: rgb(229 166 62 / 10%); border: 2px solid var(--orange); border-radius: 8px; }
+.faq-item summary { display: flex; align-items: center; gap: 10px; padding: 16px 24px; cursor: pointer; list-style: none; font-family: var(--display-font); font-size: 42px; line-height: 46px; letter-spacing: .42px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary > span:first-child { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.faq-icon { flex: 0 0 49px; font-size: 96px; line-height: 50px; text-align: center; }
+.faq-icon::before { content: '+'; }
+.faq-item[open] .faq-icon::before { content: '−'; }
+.faq-answer { padding: 0 24px 24px; font: 400 14px/20px Poppins, sans-serif; color: var(--text); overflow-wrap: anywhere; }
+.practical-info .contact { margin-top: 96px; }
+.practical-info .contact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: 60px 0; gap: 24px; }
+.practical-info .site-footer { margin-top: 114px; }
+@media (max-width: 1000px) {
+  .practical-intro { margin-top: 48px; }
+  .practical-info .info-cards { margin-top: 48px; }
+  .practical-faq { margin-top: 48px; }
+  .faq-list { max-width: none; margin-top: 32px; }
+  .practical-info .contact { margin-top: 64px; }
+  .practical-info .contact-links { grid-template-columns: 1fr; padding-inline: 0; }
+  .practical-info .site-footer { margin-top: 64px; }
+}
+@media (max-width: 600px) {
+  .practical-intro { margin-top: 32px; }
+  .practical-info .info-cards { margin-top: 40px; }
+  .practical-faq > h2 { font-size: 64px; line-height: 1.1; }
+  .faq-list { gap: 20px; }
+  .faq-item summary { font-size: 32px; line-height: 36px; padding: 16px; }
+  .faq-icon { flex-basis: 36px; font-size: 72px; line-height: 40px; }
+  .faq-answer { padding: 0 16px 20px; }
+  .practical-info .contact, .practical-info .site-footer { margin-top: 48px; }
+}

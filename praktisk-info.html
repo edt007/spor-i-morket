@@ -3,23 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Praktisk info | Spor i mørket</title>
+  <title>Praktisk info | Halloween Walk – Spor gennem mørket</title>
+  <meta name="description" content="Find pris, starttider og lokation for Halloween Walk – Spor gennem mørket. Læs svar om parkering, sværhedsgrad og spillets tidsbegrænsning på 90 minutter.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-<body>
-  <header>
-    <nav aria-label="Hovednavigation">
-      <ul>
+<body class="practical-info">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hovednavigation">
+      <a class="brand" href="index.html" aria-label="Spor gennem mørket – forside">Spor gennem mørket</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmenu" hidden>Menu</button>
+      <ul class="nav-links" id="hovedmenu">
         <li><a href="index.html">Forside</a></li>
-        <li><a href="praktisk-info.html" aria-current="page">Praktisk info</a></li>
-        <li><a href="book-billetter.html">Book billetter</a></li>
         <li><a href="oplevelsen.html">Oplevelsen</a></li>
+        <li><a href="praktisk-info.html" aria-current="page">Praktisk info</a></li>
+        <li><a class="button button-primary" href="book-billetter.html">Book billetter nu</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <h1>Praktisk information</h1>
+    <section class="practical-intro container" aria-labelledby="practical-title">
+      <h1 id="practical-title">Praktisk information</h1>
+      <p>Alt du skal vide, før du træder ind i mørket. Husk, at du altid er velkommen til at kontakte os, hvis du har spørgsmål eller særlige forespørgsler.</p>
+    </section>
+
+    <section class="info-cards container" aria-label="Pris, tidspunkt og lokation">
+      <div class="info-card">
+        <h2>Pris</h2>
+        <p>49,- pr. person</p>
+      </div>
+      <div class="info-card">
+        <h2>Hvornår?</h2>
+        <p>Fra d. 1. Okt til d. 31. Okt<br>Starttider hver dag kl. 18.00–22.45.</p>
+      </div>
+      <div class="info-card">
+        <h2>Lokation</h2>
+        <p>Skyggeskoven<br>Mørkestien 13, 4000 Roskilde</p>
+      </div>
+    </section>
+
+    <section class="practical-faq container" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item" id="parkering">
+          <summary><span>Er der mulighed for parkering?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Der er rig mulighed for parkering. Skilte og monstre hjælper jer med at finde en plads til bilen, mens I får et lille sug i maven.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span>Hvad er sværhedsgraden for opgaverne?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Opgaverne har forskellige sværhedsgrader, så både nye og erfarne gådeløsere kan være med. Samarbejde og kreativ tænkning er nøglen!</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span>Hvorfor er der tid på?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Fordi noget lurer i mørket… 👀 I skal nå at løse mysteriet, før monsteret indhenter jer! Tidsbegrænsningen gør oplevelsen mere spændende og sikrer samtidig, at flere deltagere får mulighed for at prøve ruten.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="contact container" aria-labelledby="contact-title">
+      <h2 id="contact-title">Kontakt os ang. spørgsmål og særlige forespørgsler</h2>
+      <div class="contact-links">
+        <a href="tel:+4522222222"><span>Telefon nummer: +45 22 22 22 22</span></a>
+        <a href="mailto:kontakt@sporgennemmorket.dk"><span>E-mail: kontakt@sporgennemmorket.dk</span></a>
+      </div>
+    </section>
   </main>
-  <footer></footer>
+  <footer class="site-footer">
+    <div class="footer-columns container">
+      <div class="footer-brand">
+        <p class="brand">Spor gennem mørket</p>
+        <p>90 minutter. Én skov.<br>Knæk koden og find vejen ud.</p>
+      </div>
+      <nav aria-label="Footernavigation">
+        <h2>Navigation</h2>
+        <a href="oplevelsen.html">Oplevelsen</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </nav>
+      <div>
+        <h2>Oplevelsen</h2>
+        <a href="oplevelsen.html#mediegalleri">Mediegalleri</a>
+        <a href="oplevelsen.html#rutekort">Kort over oplevelsen</a>
+      </div>
+      <div>
+        <h2>Praktisk info</h2>
+        <a href="book-billetter.html">Book billetter</a>
+        <p>1. oktober – 31. oktober</p>
+        <p>Parkering</p>
+      </div>
+      <div>
+        <h2>Find vej</h2>
+        <p>Skyggeskoven</p>
+        <p>Mørkestien 13</p>
+        <p>4000 Roskilde</p>
+      </div>
+    </div>
+    <div class="footer-bottom container"><p>Halloween Walk 2027</p></div>
+  </footer>
 </body>
 </html>
