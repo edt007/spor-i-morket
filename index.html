@@ -3,23 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forside | Spor i mørket</title>
+  <title>Halloween Walk – Spor gennem mørket</title>
+  <meta name="description" content="Én skov. 90 minutter. Følg sporene, løs gåderne og find udgangen sammen. Udforsk Halloween Walk – Spor gennem mørket, og find billetter.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-<body>
-  <header>
-    <nav aria-label="Hovednavigation">
-      <ul>
+<body class="forside">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hovednavigation">
+      <a class="brand" href="index.html" aria-label="Spor gennem mørket – forside">Spor gennem mørket</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmenu" hidden>Menu</button>
+      <ul class="nav-links" id="hovedmenu">
         <li><a href="index.html" aria-current="page">Forside</a></li>
-        <li><a href="praktisk-info.html">Praktisk info</a></li>
-        <li><a href="book-billetter.html">Book billetter</a></li>
         <li><a href="oplevelsen.html">Oplevelsen</a></li>
+        <li><a href="praktisk-info.html">Praktisk info</a></li>
+        <li><a class="button button-primary" href="book-billetter.html">Book billetter nu</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <h1>Spor i mørket</h1>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Halloween Walk: Spor gennem mørket</p>
+        <h1 id="hero-title">Én skov. 90 min.<br>Undslipper I mørket?</h1>
+        <p class="hero-lead">Følg sporene, løs gåderne og find udgangen, inden tiden løber fra jer.</p>
+        <p class="hero-description">Mellem skovens træer gemmer sig spor, som kun de opmærksomme finder. Saml holdet og bevæg jer ind i mørket. Find de skjulte ledetråde og løs gåderne sammen. Hver løsning bringer jer tættere på udgangen. I har 90 minutter... Undslipper I mørket?</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="book-billetter.html">Book billetter nu</a>
+          <a class="button button-secondary" href="oplevelsen.html">Udforsk oplevelsen</a>
+        </div>
+      </div>
+      <img class="hero-image" src="images/hero-skov.jpg" alt="En person med lys i en mørk skov mellem høje træer og tåge." width="940" height="429" fetchpriority="high">
+    </section>
+
+    <div class="info-cards container">
+      <a class="info-card" href="praktisk-info.html">
+        <h2>Hvornår?</h2>
+        <p>1. Oktober – 31. Oktober<br>Tør du gå ind i mørket?</p>
+      </a>
+      <a class="info-card" href="oplevelsen.html">
+        <h2>Hvad venter dig?</h2>
+        <p>En uhyggelig vandring fyldt<br>med gåder, spor og mysterier.</p>
+      </a>
+      <a class="info-card" href="book-billetter.html">
+        <h2>Billetter</h2>
+        <p>Sikr dig en plads, før mørket falder på!<br>Se tider og billetter.</p>
+      </a>
+    </div>
+
+    <section class="route-section" id="rutekort" aria-labelledby="route-title">
+      <div class="container">
+        <h2 id="route-title">Få et overblik over ruten</h2>
+        <p class="sr-only" id="map-description">Kortet er en teaser med overblik over ruten, ikke et navigationsværktøj under eventet. Den blå rute har tre cirkelformede safezone-markører. De orange linjer viser andre stier i skoven.</p>
+      </div>
+      <div class="route-map" aria-describedby="map-description">
+        <img class="map-image" src="images/rutekort.png" alt="Rutens forløb mellem skovens øvrige stier." width="4096" height="2304" loading="lazy">
+        <button class="safezone safezone-one" type="button" aria-label="Safezone 1" aria-expanded="false" aria-controls="safezone-text-1">
+          <img class="safezone-default" src="images/safezone.svg" width="24" height="24" alt="">
+          <img class="safezone-active" src="images/safezone-aktiv.svg" width="34" height="34" alt="">
+          <span class="safezone-text" id="safezone-text-1" hidden>Safezone</span>
+        </button>
+        <button class="safezone safezone-two" type="button" aria-label="Safezone 2" aria-expanded="false" aria-controls="safezone-text-2">
+          <img class="safezone-default" src="images/safezone.svg" width="24" height="24" alt="">
+          <img class="safezone-active" src="images/safezone-aktiv.svg" width="34" height="34" alt="">
+          <span class="safezone-text" id="safezone-text-2" hidden>Safezone</span>
+        </button>
+        <button class="safezone safezone-three" type="button" aria-label="Safezone 3" aria-expanded="false" aria-controls="safezone-text-3">
+          <img class="safezone-default" src="images/safezone.svg" width="24" height="24" alt="">
+          <img class="safezone-active" src="images/safezone-aktiv.svg" width="34" height="34" alt="">
+          <span class="safezone-text" id="safezone-text-3" hidden>Safezone</span>
+        </button>
+      </div>
+      <ul class="map-legend container" aria-label="Signaturforklaring">
+        <li><span class="legend-line legend-route" aria-hidden="true"></span>Rute</li>
+        <li><img src="images/safezone.svg" width="24" height="24" alt="">Safezone</li>
+        <li><span class="legend-line legend-path" aria-hidden="true"></span>Andre stier i skoven</li>
+      </ul>
+    </section>
+
+    <section class="contact container" aria-labelledby="contact-title">
+      <h2 id="contact-title">Kontakt os ang. spørgsmål og særlige forespørgsler</h2>
+      <div class="contact-links">
+        <a href="tel:+4522222222"><img src="images/telefon.png" width="31" height="31" alt=""> <span>Telefon nummer: +45 22 22 22 22</span></a>
+        <a href="mailto:kontakt@sporgennemmorket.dk"><img src="images/email.png" width="32" height="32" alt=""> <span>E-mail: kontakt@sporgennemmorket.dk</span></a>
+      </div>
+    </section>
   </main>
-  <footer></footer>
+  <footer class="site-footer">
+    <div class="footer-columns container">
+      <div class="footer-brand">
+        <p class="brand">Spor gennem mørket</p>
+        <p>90 minutter. Én skov.<br>Knæk koden og find vejen ud.</p>
+      </div>
+      <nav aria-label="Footernavigation">
+        <h2>Navigation</h2>
+        <a href="oplevelsen.html">Oplevelsen</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </nav>
+      <div>
+        <h2>Oplevelsen</h2>
+        <a href="oplevelsen.html">Mediegalleri</a>
+        <a href="#rutekort">Kort over oplevelsen</a>
+      </div>
+      <div>
+        <h2>Praktisk info</h2>
+        <a href="book-billetter.html">Book billetter</a>
+        <p>1. oktober – 31. oktober</p>
+        <p>Parkering</p>
+      </div>
+      <div>
+        <h2>Find vej</h2>
+        <p>Skyggeskoven</p>
+        <p>Mørkestien 13</p>
+        <p>4000 Roskilde</p>
+      </div>
+    </div>
+    <div class="footer-bottom container"><p>Halloween Walk 2027</p></div>
+  </footer>
 </body>
 </html>

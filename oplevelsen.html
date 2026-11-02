@@ -3,23 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oplevelsen | Spor i mørket</title>
+  <title>Oplevelsen | Halloween Walk – Spor gennem mørket</title>
+  <meta name="description" content="Oplev en Halloween Walk med 90 minutters gåder, cirka 2 km rute, otte ledetråde og tre safezoner. Saml et hold på 2–8 personer og find udgangen sammen.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/galleri.js" defer></script>
 </head>
-<body>
-  <header>
-    <nav aria-label="Hovednavigation">
-      <ul>
+<body class="oplevelsen">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hovednavigation">
+      <a class="brand" href="index.html" aria-label="Spor gennem mørket – forside">Spor gennem mørket</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmenu" hidden>Menu</button>
+      <ul class="nav-links" id="hovedmenu">
         <li><a href="index.html">Forside</a></li>
-        <li><a href="praktisk-info.html">Praktisk info</a></li>
-        <li><a href="book-billetter.html">Book billetter</a></li>
         <li><a href="oplevelsen.html" aria-current="page">Oplevelsen</a></li>
+        <li><a href="praktisk-info.html">Praktisk info</a></li>
+        <li><a class="button button-primary" href="book-billetter.html">Book billetter nu</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <h1>Oplevelsen</h1>
+    <section class="experience-intro container" aria-labelledby="experience-title">
+      <h1 id="experience-title">En halloweenoplevelse I sent vil glemme</h1>
+      <p>Mellem skovens træer gemmer sig spor, som kun de opmærksomme finder. Saml holdet og bevæg jer ind i mørket. Find de skjulte ledetråde og løs gåderne sammen. Hver løsning bringer jer tættere på udgangen. I har 90 minutter... Undslipper I mørket?</p>
+    </section>
+
+    <section class="gallery container" id="mediegalleri" aria-label="Billeder fra 2026">
+      <div class="gallery-viewport" id="gallery-viewport" tabindex="0" role="region" aria-label="Billedgalleri fra 2026" aria-describedby="gallery-caption">
+        <div class="gallery-column" style="--column-width: 303px">
+          <div class="gallery-image" style="--frame-ratio: 303 / 214; --image-width: 140.5941%; --image-height: 132.7103%; --image-left: -28.0528%; --image-top: -15.4206%"><img src="images/galleri-noeglehul.png" alt="Et skilt med et nøglehul hænger på et træ." width="1536" height="1024" loading="lazy"></div>
+          <div class="gallery-image" style="--frame-ratio: 303 / 293; --image-width: 117.8218%; --image-height: 216.3823%; --image-left: -7.5908%; --image-top: -74.0614%"><img src="images/galleri-hold.png" alt="Et hold går gennem skoven ved solnedgang." width="941" height="1672" loading="lazy"></div>
+        </div>
+        <div class="gallery-column" style="--column-width: 303px">
+          <div class="gallery-image" style="--frame-ratio: 303 / 293; --image-width: 263.0363%; --image-height: 181.2287%; --image-left: -81.8482%; --image-top: -40.9556%"><img src="images/galleri-fugleskraemsel.png" alt="Et fugleskræmsel med en lysende lanterne i skoven." width="1536" height="1024" loading="lazy"></div>
+          <div class="gallery-image" style="--frame-ratio: 303 / 214; --image-width: 156.7657%; --image-height: 148.1308%; --image-left: -19.4719%; --image-top: -35.5140%"><img src="images/galleri-skovfigurer.png" alt="Et hold hviler sig mellem træerne." width="1536" height="1024" loading="lazy"></div>
+        </div>
+        <div class="gallery-column" style="--column-width: 195px">
+          <div class="gallery-image" style="--frame-ratio: 195 / 194; --image-width: 161.5385%; --image-height: 243.8144%; --image-left: -31.2821%; --image-top: -72.6804%"><img src="images/galleri-skovsti.png" alt="To silhuetter på en skovsti i gyldent lys." width="1024" height="1536" loading="lazy"></div>
+          <div class="gallery-image" style="--frame-ratio: 195 / 313; --image-width: 214.0169%; --image-height: 100.0000%; --image-left: -39.4872%; --image-top: -0.3195%"><img src="images/galleri-traehus.png" alt="Et oplyst træhus i mørket." width="1448" height="1086" loading="lazy"></div>
+        </div>
+        <div class="gallery-column" style="--column-width: 303px">
+          <div class="gallery-image" style="--frame-ratio: 303 / 214; --image-width: 105.9406%; --image-height: 100.0000%; --image-left: -6.2706%; --image-top: -0.4673%"><img src="images/galleri-skovhytte.png" alt="En lille hytte blandt træerne." width="1536" height="1024" loading="lazy"></div>
+          <div class="gallery-image" style="--frame-ratio: 303 / 293; --image-width: 123.2145%; --image-height: 191.5017%; --image-left: -11.6139%; --image-top: -45.0648%"><img src="images/galleri-graeskarhoved.png" alt="En figur med lysende græskarhoved på en mørk skovsti." width="1024" height="1536" loading="lazy"></div>
+        </div>
+        <div class="gallery-column" style="--column-width: 303px">
+          <div class="gallery-image" style="--frame-ratio: 303 / 293; --image-width: 224.0924%; --image-height: 105.4608%; --image-left: -31.3531%; --image-top: -5.8020%"><img src="images/galleri-lommelygte.png" alt="Fire silhuetter omkring et lys i en tåget skov." width="1857" height="847" loading="lazy"></div>
+        </div>
+        <div class="gallery-column" style="--column-width: 195px">
+          <div class="gallery-image" style="--frame-ratio: 195 / 194; --image-width: 262.5641%; --image-height: 175.7732%; --image-left: -81.5385%; --image-top: -38.6598%"><img src="images/galleri-spor.png" alt="En mørk silhuet mellem træerne i tåget modlys." width="1536" height="1024" loading="lazy"></div>
+          <div class="gallery-image" style="--frame-ratio: 195 / 313; --image-width: 407.1795%; --image-height: 169.0096%; --image-left: -204.1026%; --image-top: -48.8818%"><img src="images/galleri-gaade.png" alt="En klovnefigur med en gul ballon blandt træerne." width="1536" height="1024" loading="lazy"></div>
+        </div>
+        <div class="gallery-column" style="--column-width: 303px">
+          <div class="gallery-image" style="--frame-ratio: 303 / 293; --image-width: 172.6073%; --image-height: 100.3413%; --image-left: -67.9868%; --image-top: -0.3413%"><img src="images/galleri-noegler.png" alt="Nøgler hænger i den mørke skov." width="1672" height="941" loading="lazy"></div>
+          <div class="gallery-image" style="--frame-ratio: 303 / 214; --image-width: 145.2145%; --image-height: 136.9159%; --image-left: -24.4224%; --image-top: -32.7103%"><img src="images/galleri-haengelaas.png" alt="En rusten hængelås ved skoven." width="1536" height="1024" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="gallery-controls">
+        <button class="button button-secondary" id="gallery-previous" type="button" aria-label="Vis forrige billeder" aria-controls="gallery-viewport" hidden>← Forrige</button>
+        <p id="gallery-caption">Swipe og se flere billeder fra 2026</p>
+        <button class="button button-secondary" id="gallery-next" type="button" aria-label="Vis næste billeder" aria-controls="gallery-viewport" hidden>Næste →</button>
+      </div>
+    </section>
+
+    <section class="experience-facts container" aria-label="Om oplevelsen">
+      <div class="experience-fact">
+        <h2><img src="images/ikon-hold.png" width="29" height="29" alt="">Samarbejd 2–8 personer</h2>
+        <p>Kom med vennerne · større grupper deles.</p>
+      </div>
+      <div class="experience-fact">
+        <h2><img src="images/ikon-timeglas.png" width="29" height="29" alt="">Uret tæller ned: 90 minutter</h2>
+        <p>Afsæt cirka 1½–2 timer til besøget.</p>
+      </div>
+      <div class="experience-fact">
+        <h2><img src="images/ikon-noegle.png" width="26" height="26" alt="">Find spor og løs gåder</h2>
+        <p>Find og løs de skjulte ledetråde.</p>
+      </div>
+    </section>
+
+    <section class="experience-route container" id="rutekort" aria-labelledby="route-title">
+      <div class="experience-route-copy">
+        <p class="eyebrow">KORT, OVERBLIK OG SAFEZONER</p>
+        <h2 id="route-title">Ruten er ca. 2 km og spækket med opgaver</h2>
+        <h3>Ledetråde og safezoner langs ruten</h3>
+        <p>Mørket kan godt blive intenst. Derfor er der indrettet safezoner med siddepladser, hvor man kan hvile benene, trække vejret og samle sig efter behov.</p>
+        <p>Safezoner: 3 safezoner ca. hver 600 meter<br>På ruten finder I otte ledetråde — to på hver strækning mellem start, safezonerne og slut.</p>
+      </div>
+      <div class="experience-route-visual">
+        <p class="sr-only" id="map-description">Kortet giver et overblik over ruten. Den blå rute har tre cirkelformede safezone-markører. De orange linjer viser andre stier i skoven.</p>
+        <div class="route-map experience-map" aria-describedby="map-description">
+          <img class="map-image" src="images/rutekort.png" alt="Rutens forløb mellem skovens øvrige stier." width="4096" height="2304" loading="lazy">
+          <button class="safezone safezone-one" type="button" aria-label="Safezone 1" aria-expanded="false" aria-controls="safezone-text-1">
+            <img class="safezone-default" src="images/safezone.svg" width="24" height="24" alt="">
+            <img class="safezone-active" src="images/safezone-aktiv.svg" width="34" height="34" alt="">
+            <span class="safezone-text" id="safezone-text-1" hidden>Safezone</span>
+          </button>
+          <button class="safezone safezone-two" type="button" aria-label="Safezone 2" aria-expanded="false" aria-controls="safezone-text-2">
+            <img class="safezone-default" src="images/safezone.svg" width="24" height="24" alt="">
+            <img class="safezone-active" src="images/safezone-aktiv.svg" width="34" height="34" alt="">
+            <span class="safezone-text" id="safezone-text-2" hidden>Safezone</span>
+          </button>
+          <button class="safezone safezone-three" type="button" aria-label="Safezone 3" aria-expanded="false" aria-controls="safezone-text-3">
+            <img class="safezone-default" src="images/safezone.svg" width="24" height="24" alt="">
+            <img class="safezone-active" src="images/safezone-aktiv.svg" width="34" height="34" alt="">
+            <span class="safezone-text" id="safezone-text-3" hidden>Safezone</span>
+          </button>
+        </div>
+        <ul class="map-legend" aria-label="Signaturforklaring">
+          <li><span class="legend-line legend-route" aria-hidden="true"></span>Rute</li>
+          <li><img src="images/safezone.svg" width="24" height="24" alt="">Safezoner</li>
+          <li><span class="legend-line legend-path" aria-hidden="true"></span>Andre stier i skoven</li>
+        </ul>
+      </div>
+      <div class="experience-actions">
+        <a class="button button-primary" href="book-billetter.html">Book billetter nu</a>
+        <a class="button button-secondary" href="praktisk-info.html#faq">Læs ofte stillede spørgsmål</a>
+      </div>
+    </section>
   </main>
-  <footer></footer>
+  <footer class="site-footer">
+    <div class="footer-columns container">
+      <div class="footer-brand">
+        <p class="brand">Spor gennem mørket</p>
+        <p>90 minutter. Én skov.<br>Knæk koden og find vejen ud.</p>
+      </div>
+      <nav aria-label="Footernavigation">
+        <h2>Navigation</h2>
+        <a href="oplevelsen.html">Oplevelsen</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </nav>
+      <div>
+        <h2>Oplevelsen</h2>
+        <a href="#mediegalleri">Mediegalleri</a>
+        <a href="#rutekort">Kort over oplevelsen</a>
+      </div>
+      <div>
+        <h2>Praktisk info</h2>
+        <a href="book-billetter.html">Book billetter</a>
+        <p>1. oktober – 31. oktober</p>
+        <p>Parkering</p>
+      </div>
+      <div>
+        <h2>Find vej</h2>
+        <p>Skyggeskoven</p>
+        <p>Mørkestien 13</p>
+        <p>4000 Roskilde</p>
+      </div>
+    </div>
+    <div class="footer-bottom container"><p>Halloween Walk 2027</p></div>
+  </footer>
 </body>
 </html>
