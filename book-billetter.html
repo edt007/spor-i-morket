@@ -3,23 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book billetter | Spor i mørket</title>
+  <title>Book billetter | Halloween Walk – Spor gennem mørket</title>
+  <meta name="description" content="Afprøv booking af Halloween Walk i oktober 2027. Vælg dato, starttid og 2–8 deltagere til 49 kr. pr. person. Ingen reel reservation eller betaling.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/booking.js" defer></script>
 </head>
-<body>
-  <header>
-    <nav aria-label="Hovednavigation">
-      <ul>
+<body class="booking-page">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hovednavigation">
+      <a class="brand" href="index.html" aria-label="Spor gennem mørket – forside">Spor gennem mørket</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmenu" hidden>Menu</button>
+      <ul class="nav-links" id="hovedmenu">
         <li><a href="index.html">Forside</a></li>
-        <li><a href="praktisk-info.html">Praktisk info</a></li>
-        <li><a href="book-billetter.html" aria-current="page">Book billetter</a></li>
         <li><a href="oplevelsen.html">Oplevelsen</a></li>
+        <li><a href="praktisk-info.html">Praktisk info</a></li>
+        <li><a class="button button-primary" href="book-billetter.html" aria-current="page">Book billetter nu</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <h1>Book billetter</h1>
+    <div class="booking-forest" aria-hidden="true">
+      <img class="booking-forest-image" src="images/booking-skov.png" alt="" width="3279" height="4096" fetchpriority="high">
+      <span class="footprint footprint-1" data-step="date"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-2" data-step="time"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-3" data-step="participants"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-4" data-step="name"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-5" data-step="phone"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-6" data-step="email"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span>
+    </div>
+    <p class="sr-only" id="booking-progress" role="status" aria-atomic="true">0 af 6 punkter udfyldt</p>
+    <div class="container booking-content">
+      <form id="booking-form" novalidate autocomplete="off">
+        <h1 id="booking-title" tabindex="-1">Vælg jeres starttid og dato</h1>
+        <p class="booking-notice">Prototype: Ingen reel reservation eller betaling. 1.–31. oktober 2027 · 90 minutter · 49 kr. pr. person.</p>
+        <noscript><p>Bookingprototypen kræver JavaScript. Ingen oplysninger sendes eller gemmes.</p></noscript>
+        <div id="booking-errors" class="booking-panel booking-error-summary" tabindex="-1" hidden><h2>Ret oplysningerne for at fortsætte</h2><ul></ul></div>
+        <div class="booking-schedule">
+          <fieldset class="booking-panel" id="date-group" aria-describedby="date-error">
+            <legend>Oktober 2027</legend>
+            <div class="booking-calendar">
+              <span class="weekday">Man</span><span class="weekday">Tir</span><span class="weekday">Ons</span><span class="weekday">Tor</span><span class="weekday">Fre</span><span class="weekday">Lør</span><span class="weekday">Søn</span>
+              <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><label class="booking-choice"><input type="radio" name="date" value="2027-10-01" required aria-label="1. oktober 2027" aria-describedby="date-error"><span>1</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-02" required aria-label="2. oktober 2027" aria-describedby="date-error"><span>2</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-03" required aria-label="3. oktober 2027" aria-describedby="date-error"><span>3</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-04" required aria-label="4. oktober 2027" aria-describedby="date-error"><span>4</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-05" required aria-label="5. oktober 2027" aria-describedby="date-error"><span>5</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-06" required aria-label="6. oktober 2027" aria-describedby="date-error"><span>6</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-07" required aria-label="7. oktober 2027" aria-describedby="date-error"><span>7</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-08" required aria-label="8. oktober 2027" aria-describedby="date-error"><span>8</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-09" required aria-label="9. oktober 2027" aria-describedby="date-error"><span>9</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-10" required aria-label="10. oktober 2027" aria-describedby="date-error"><span>10</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-11" required aria-label="11. oktober 2027" aria-describedby="date-error"><span>11</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-12" required aria-label="12. oktober 2027" aria-describedby="date-error"><span>12</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-13" required aria-label="13. oktober 2027" aria-describedby="date-error"><span>13</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-14" required aria-label="14. oktober 2027" aria-describedby="date-error"><span>14</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-15" required aria-label="15. oktober 2027" aria-describedby="date-error"><span>15</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-16" required aria-label="16. oktober 2027" aria-describedby="date-error"><span>16</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-17" required aria-label="17. oktober 2027" aria-describedby="date-error"><span>17</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-18" required aria-label="18. oktober 2027" aria-describedby="date-error"><span>18</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-19" required aria-label="19. oktober 2027" aria-describedby="date-error"><span>19</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-20" required aria-label="20. oktober 2027" aria-describedby="date-error"><span>20</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-21" required aria-label="21. oktober 2027" aria-describedby="date-error"><span>21</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-22" required aria-label="22. oktober 2027" aria-describedby="date-error"><span>22</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-23" required aria-label="23. oktober 2027" aria-describedby="date-error"><span>23</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-24" required aria-label="24. oktober 2027" aria-describedby="date-error"><span>24</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-25" required aria-label="25. oktober 2027" aria-describedby="date-error"><span>25</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-26" required aria-label="26. oktober 2027" aria-describedby="date-error"><span>26</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-27" required aria-label="27. oktober 2027" aria-describedby="date-error"><span>27</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-28" required aria-label="28. oktober 2027" aria-describedby="date-error"><span>28</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-29" required aria-label="29. oktober 2027" aria-describedby="date-error"><span>29</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-30" required aria-label="30. oktober 2027" aria-describedby="date-error"><span>30</span></label><label class="booking-choice"><input type="radio" name="date" value="2027-10-31" required aria-label="31. oktober 2027" aria-describedby="date-error"><span>31</span></label>
+            </div>
+            <p class="booking-error" id="date-error" hidden></p>
+          </fieldset>
+          <fieldset class="booking-panel" id="time-group" aria-describedby="time-error">
+            <legend class="sr-only">Starttidspunkt</legend>
+            <div class="booking-times"><label class="booking-choice"><input type="radio" name="time" value="18.00" required aria-describedby="time-error"><span>18.00</span></label><label class="booking-choice"><input type="radio" name="time" value="18.15" required aria-describedby="time-error"><span>18.15</span></label><label class="booking-choice"><input type="radio" name="time" value="18.30" required aria-describedby="time-error"><span>18.30</span></label><label class="booking-choice"><input type="radio" name="time" value="18.45" required aria-describedby="time-error"><span>18.45</span></label><label class="booking-choice"><input type="radio" name="time" value="19.00" required aria-describedby="time-error"><span>19.00</span></label><label class="booking-choice"><input type="radio" name="time" value="19.15" required aria-describedby="time-error"><span>19.15</span></label><label class="booking-choice"><input type="radio" name="time" value="19.30" required aria-describedby="time-error"><span>19.30</span></label><label class="booking-choice"><input type="radio" name="time" value="19.45" required aria-describedby="time-error"><span>19.45</span></label><label class="booking-choice"><input type="radio" name="time" value="20.00" required aria-describedby="time-error"><span>20.00</span></label><label class="booking-choice"><input type="radio" name="time" value="20.15" required aria-describedby="time-error"><span>20.15</span></label><label class="booking-choice"><input type="radio" name="time" value="20.30" required aria-describedby="time-error"><span>20.30</span></label><label class="booking-choice"><input type="radio" name="time" value="20.45" required aria-describedby="time-error"><span>20.45</span></label><label class="booking-choice"><input type="radio" name="time" value="21.00" required aria-describedby="time-error"><span>21.00</span></label><label class="booking-choice"><input type="radio" name="time" value="21.15" required aria-describedby="time-error"><span>21.15</span></label><label class="booking-choice"><input type="radio" name="time" value="21.30" required aria-describedby="time-error"><span>21.30</span></label><label class="booking-choice"><input type="radio" name="time" value="21.45" required aria-describedby="time-error"><span>21.45</span></label><label class="booking-choice"><input type="radio" name="time" value="22.00" required aria-describedby="time-error"><span>22.00</span></label><label class="booking-choice"><input type="radio" name="time" value="22.15" required aria-describedby="time-error"><span>22.15</span></label><label class="booking-choice"><input type="radio" name="time" value="22.30" required aria-describedby="time-error"><span>22.30</span></label><label class="booking-choice"><input type="radio" name="time" value="22.45" required aria-describedby="time-error"><span>22.45</span></label></div>
+            <p class="booking-error" id="time-error" hidden></p>
+          </fieldset>
+        </div>
+        <fieldset class="booking-participants" id="participants-group" aria-describedby="participants-error">
+          <legend>Hvor mange er i?</legend>
+          <div class="booking-counts"><label class="booking-choice"><input type="radio" name="participants" value="2" required aria-describedby="participants-error"><span>2</span></label><label class="booking-choice"><input type="radio" name="participants" value="3" required aria-describedby="participants-error"><span>3</span></label><label class="booking-choice"><input type="radio" name="participants" value="4" required aria-describedby="participants-error"><span>4</span></label><label class="booking-choice"><input type="radio" name="participants" value="5" required aria-describedby="participants-error"><span>5</span></label><label class="booking-choice"><input type="radio" name="participants" value="6" required aria-describedby="participants-error"><span>6</span></label><label class="booking-choice"><input type="radio" name="participants" value="7" required aria-describedby="participants-error"><span>7</span></label><label class="booking-choice"><input type="radio" name="participants" value="8" required aria-describedby="participants-error"><span>8</span></label><button class="booking-large-group" type="button" aria-expanded="false" aria-controls="large-group-contact">+8<span class="sr-only">: Kontakt os om flere end 8 deltagere</span></button></div>
+          <p class="booking-error" id="participants-error" hidden></p>
+          <p class="booking-panel" id="large-group-contact" hidden>Større grupper skal kontakte os: <a href="tel:+4522222222">+45 22 22 22 22</a> eller <a href="mailto:kontakt@sporgennemmorket.dk">kontakt@sporgennemmorket.dk</a>. Vælg 2–8 deltagere for at fortsætte almindelig booking.</p>
+        </fieldset>
+        <h2 class="booking-contact-title">Indtast dine oplysninger:</h2>
+        <div class="booking-details">
+          <div class="booking-fields"><div class="booking-field"><label for="booking-name">Navn</label><input id="booking-name" name="name" type="text" autocomplete="name" placeholder="Indtast dit navn…" required aria-describedby="name-error"><p class="booking-error" id="name-error" hidden></p></div>
+<div class="booking-field"><label for="booking-phone">Mobilnummer</label><input id="booking-phone" name="phone" type="tel" autocomplete="tel" placeholder="Indtast dit mobilnummer…" required aria-describedby="phone-error"><p class="booking-error" id="phone-error" hidden></p></div>
+<div class="booking-field"><label for="booking-email">Mailadresse</label><input id="booking-email" name="email" type="email" autocomplete="email" placeholder="Indtast din mail…" required aria-describedby="email-error"><p class="booking-error" id="email-error" hidden></p></div>
+</div>
+          <fieldset class="booking-terms">
+            <legend>Bookingvilkår:</legend>
+            <div class="booking-panel">
+              <div><label class="booking-term"><input type="checkbox" id="booking-term1" name="term1" required aria-describedby="term1-error"><span>Mine kontaktoplysninger er korrekte og jeg giver samtykke til, at modtage bookingbekræftelse på mail samt påmindelse på telefon.</span></label><p class="booking-error" id="term1-error" hidden></p></div><div><label class="booking-term"><input type="checkbox" id="booking-term2" name="term2" required aria-describedby="term2-error"><span>Jeg bekræfter booking- og aflysningspolitik.</span></label><p class="booking-error" id="term2-error" hidden></p></div><div><label class="booking-term"><input type="checkbox" id="booking-term3" name="term3" required aria-describedby="term3-error"><span>Jeg er indforstået med, at jeg hæfter for booking, medmindre jeg afbestiller op til 24 timer før.</span></label><p class="booking-error" id="term3-error" hidden></p></div>
+              <p class="booking-notice">Den fulde booking- og aflysningspolitik er endnu ikke tilgængelig i prototypen. Afkrydsningerne demonstrerer formularen; der sendes ingen mail eller telefonpåmindelse.</p>
+              <button class="button button-primary" type="submit" disabled>Book billetter nu</button>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+      <section class="booking-panel booking-summary" id="booking-summary" aria-labelledby="summary-title" hidden>
+        <h2 id="summary-title" tabindex="-1">Jeres bookingoversigt</h2>
+        <dl><dt>Dato</dt><dd id="summary-date"></dd><dt>Starttidspunkt</dt><dd id="summary-time"></dd><dt>Antal deltagere</dt><dd id="summary-participants"></dd><dt>Samlet pris</dt><dd id="summary-price"></dd></dl>
+        <p>Dette er en prototype. Der er ikke oprettet en reservation eller sendt en bekræftelsesmail.</p>
+        <button class="button button-secondary" id="edit-booking" type="button">Ret oplysninger</button>
+      </section>
+    </div>
   </main>
-  <footer></footer>
+  <footer class="site-footer">
+    <div class="footer-columns container">
+      <div class="footer-brand">
+        <p class="brand">Spor gennem mørket</p>
+        <p>90 minutter. Én skov.<br>Knæk koden og find vejen ud.</p>
+      </div>
+      <nav aria-label="Footernavigation">
+        <h2>Navigation</h2>
+        <a href="oplevelsen.html">Oplevelsen</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </nav>
+      <div>
+        <h2>Oplevelsen</h2>
+        <a href="oplevelsen.html#mediegalleri">Mediegalleri</a>
+        <a href="oplevelsen.html#rutekort">Kort over oplevelsen</a>
+      </div>
+      <div>
+        <h2>Praktisk info</h2>
+        <a href="book-billetter.html">Book billetter</a>
+        <p>1. oktober – 31. oktober</p>
+        <p>Parkering</p>
+      </div>
+      <div>
+        <h2>Find vej</h2>
+        <p>Skyggeskoven</p>
+        <p>Mørkestien 13</p>
+        <p>4000 Roskilde</p>
+      </div>
+    </div>
+    <div class="footer-bottom container"><p>Halloween Walk 2027</p></div>
+  </footer>
 </body>
 </html>
