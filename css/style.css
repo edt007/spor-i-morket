@@ -245,23 +245,29 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
 /* Book Billetter – B01–B11. Afgrænset til bookingens egne klasser. */
 .booking-forest { position: relative; width: 100%; aspect-ratio: 1440 / 520; overflow: hidden; border: 2px solid var(--background); }
 .booking-forest-image { position: absolute; width: 99.97%; height: 345.33%; left: 0; top: -191.03%; max-width: none; }
-/* De fem oprindelige billedudsnit følger Figma-komponenten. Placeringerne
-   holdes inden for skovbilledet (B02/B11); nummer seks genbruger motivet. */
-.footprint { position: absolute; display: block; overflow: hidden; opacity: 0; pointer-events: none; }
-.footprint.is-complete { opacity: 1; transition: opacity 250ms ease; }
-.footprint img { position: absolute; display: block; max-width: none; }
-.footprint-1 { left: 54.79%; top: 55%; width: 12.43%; aspect-ratio: 179 / 212; }
-.footprint-1 img { width: 235.65%; height: 199.26%; left: -117.39%; top: -99.26%; }
-.footprint-2 { left: 44.72%; top: 48%; width: 9.10%; aspect-ratio: 131 / 138; }
-.footprint-2 img { width: 322.62%; height: 304.49%; left: -33.33%; top: -102.25%; }
-.footprint-3 { left: 55.83%; top: 39%; width: 6.39%; aspect-ratio: 92 / 89; }
-.footprint-3 img { width: 459.32%; height: 475.44%; left: -252.54%; top: -110.53%; }
-.footprint-4 { left: 50.49%; top: 31%; width: 4.51%; aspect-ratio: 65 / 59; }
-.footprint-4 img { width: 645.24%; height: 713.16%; left: -195.24%; top: -92.11%; }
-.footprint-5 { left: 55.83%; top: 24%; width: 3.26%; aspect-ratio: 1; }
-.footprint-5 img, .footprint-6 img { width: 903.33%; height: 903.33%; left: -500%; top: -46.67%; }
-.footprint-6 { left: 52.5%; top: 18%; width: 2.5%; aspect-ratio: 1; }
-.booking-content { margin-top: 49px; }
+/* Fremdriften har sin egen gridkolonne. Kun billedet ovenfor har overflow;
+   sticky-kæden (kolonne, booking-content, main og body) ruller med dokumentet.
+   Navigationen er ikke fastgjort, så 16 px topafstand holder sporet synligt.
+   Kolonnens højde slutter ved bookingsektionen, før footeren. */
+.booking-content { margin-top: 49px; display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 24px; }
+.booking-body { min-width: 0; }
+.booking-progress-column { min-width: 0; }
+/* To tænkte kolonner og seks rækker: ét aftryk i hver række, skiftevis
+   venstre/højre. Grid reserverer plads uden at ændre formularens rækkefølge.
+   Hele sporet centreres i den synlige højde; korte skærme skalerer ned. */
+.booking-trail { --footprint-height: min(70.4px, calc((100vh - 64px) / 9)); --footprint-height: min(70.4px, calc((100svh - 64px) / 9)); position: sticky; top: 16px; height: calc(100vh - 32px); height: calc(100svh - 32px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, var(--footprint-height)); align-content: center; justify-items: center; row-gap: clamp(8px, 5vh, 40px); row-gap: clamp(8px, 5svh, 40px); column-gap: 8px; }
+.footprint { display: block; width: 72%; height: 100%; min-height: 0; overflow: visible; color: var(--blue); pointer-events: none; }
+.footprint:nth-of-type(odd) { grid-column: 2; transform: scaleX(-1) rotate(-12deg); }
+.footprint:nth-of-type(even) { grid-column: 1; transform: rotate(-12deg); }
+.footprint-1 { grid-row: 1; }
+.footprint-2 { grid-row: 2; }
+.footprint-3 { grid-row: 3; }
+.footprint-4 { grid-row: 4; }
+.footprint-5 { grid-row: 5; }
+.footprint-6 { grid-row: 6; }
+/* Tomme pladser bevarer layoutet, men intet omrids vises før gyldigt input. */
+.footprint-fill { display: block; width: 100%; height: 100%; object-fit: contain; transform: rotate(180deg) scale(1.2); opacity: 0; }
+.footprint.is-complete .footprint-fill { opacity: 1; transition: opacity 250ms ease; }
 .booking-content h1 { font: 400 48px/1.15 var(--display-font); margin: 0; }
 .booking-notice { font-size: 14px; line-height: 1.5; margin-top: 16px; }
 .booking-page fieldset { min-width: 0; margin: 0; }
@@ -316,7 +322,7 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
   .booking-times { gap: 12px; }
   .booking-choice { font-size: 24px; }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .booking-schedule, .booking-details { grid-template-columns: 1fr; }
   .booking-schedule { margin-top: 32px; }
   .booking-details { gap: 32px; }
@@ -325,7 +331,8 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
   .booking-counts .booking-choice, .booking-large-group { min-height: 76px; }
 }
 @media (max-width: 600px) {
-  .booking-content { margin-top: 32px; }
+  .booking-content { margin-top: 32px; grid-template-columns: minmax(0, 1fr) 64px; gap: 8px; }
+  .booking-trail { --footprint-height: min(51.2px, calc((100vh - 64px) / 9)); --footprint-height: min(51.2px, calc((100svh - 64px) / 9)); }
   .booking-content h1 { font-size: 40px; }
   .booking-panel { padding: 16px 10px; }
   .booking-schedule legend, .booking-participants legend, .booking-contact-title { font-size: 32px; line-height: 1.2; }
@@ -344,5 +351,20 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
   .booking-summary dd { margin-bottom: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .footprint.is-complete { transition: none; }
+  .footprint.is-complete .footprint-fill { transition: none; }
 }
+
+/* Smalle formularer ved siden af mobilsporet. Syv datokolonner bevares;
+   ingen minimumsbredde på selve formularen eller skjult vandret overflow. */
+@media (min-width: 601px) and (max-width: 1100px) {
+  .booking-content { grid-template-columns: minmax(0, 1fr) 112px; gap: 16px; }
+}
+@media (max-width: 360px) {
+  .booking-panel { padding-inline: 6px; }
+  .booking-times { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .booking-calendar .booking-choice { font-size: 16px; }
+  .booking-field label, .booking-terms legend { font-size: 24px; }
+}
+.booking-body .booking-term > span { min-width: 0; overflow-wrap: anywhere; }
+.booking-body .booking-notice, .booking-body .booking-error, .booking-error-summary a { overflow-wrap: anywhere; }
+.booking-body .button { max-width: 100%; }

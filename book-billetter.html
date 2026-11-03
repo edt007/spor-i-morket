@@ -25,12 +25,13 @@
   <main>
     <div class="booking-forest" aria-hidden="true">
       <img class="booking-forest-image" src="images/booking-skov.png" alt="" width="3279" height="4096" fetchpriority="high">
-      <span class="footprint footprint-1" data-step="date"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-2" data-step="time"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-3" data-step="participants"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-4" data-step="name"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-5" data-step="phone"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span><span class="footprint footprint-6" data-step="email"><img src="images/booking-fodspor.png" alt="" width="1254" height="1254"></span>
+
     </div>
     <p class="sr-only" id="booking-progress" role="status" aria-atomic="true">0 af 6 punkter udfyldt</p>
     <div class="container booking-content">
+      <div class="booking-body">
       <form id="booking-form" novalidate autocomplete="off">
-        <h1 id="booking-title" tabindex="-1">Vælg jeres starttid og dato</h1>
+        <h1 id="booking-title" tabindex="-1">Vælg jeres dato og starttid</h1>
         <p class="booking-notice">Prototype: Ingen reel reservation eller betaling. 1.–31. oktober 2027 · 90 minutter · 49 kr. pr. person.</p>
         <noscript><p>Bookingprototypen kræver JavaScript. Ingen oplysninger sendes eller gemmes.</p></noscript>
         <div id="booking-errors" class="booking-panel booking-error-summary" tabindex="-1" hidden><h2>Ret oplysningerne for at fortsætte</h2><ul></ul></div>
@@ -77,6 +78,17 @@
         <p>Dette er en prototype. Der er ikke oprettet en reservation eller sendt en bekræftelsesmail.</p>
         <button class="button button-secondary" id="edit-booking" type="button">Ret oplysninger</button>
       </section>
+      </div>
+      <div class="booking-progress-column" aria-hidden="true">
+        <div class="booking-trail">
+          <span class="footprint footprint-1" data-step="date"><img class="footprint-fill" src="images/booking-fodspor-fritlagt.png" alt="" width="1024" height="1536"></span>
+          <span class="footprint footprint-2" data-step="time"><img class="footprint-fill" src="images/booking-fodspor-fritlagt.png" alt="" width="1024" height="1536"></span>
+          <span class="footprint footprint-3" data-step="participants"><img class="footprint-fill" src="images/booking-fodspor-fritlagt.png" alt="" width="1024" height="1536"></span>
+          <span class="footprint footprint-4" data-step="name"><img class="footprint-fill" src="images/booking-fodspor-fritlagt.png" alt="" width="1024" height="1536"></span>
+          <span class="footprint footprint-5" data-step="phone"><img class="footprint-fill" src="images/booking-fodspor-fritlagt.png" alt="" width="1024" height="1536"></span>
+          <span class="footprint footprint-6" data-step="email"><img class="footprint-fill" src="images/booking-fodspor-fritlagt.png" alt="" width="1024" height="1536"></span>
+        </div>
+      </div>
     </div>
   </main>
   <footer class="site-footer">

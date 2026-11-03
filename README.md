@@ -262,3 +262,75 @@ og CSS-validering er ikke udført. Den manglende bookingpolitik samt B12/B13
 skal afklares, før prototypen kan regnes som færdigkontrolleret.
 
 Ingen commit, push eller deployment er udført.
+
+## Opdateret fodsporsvisning – sticky SVG-kolonne
+
+Denne ændring erstatter de tidligere beskrivelser af fodspor i skovbilledet
+og det afventende B13-forslag. Der bruges nu ét genbrugeligt inline SVG-symbol
+med adskilt sål og hæl. Seks spejlede/roterede aftryk danner et spor nedefra
+og op i en reserveret højrekolonne. Konturerne vises fra start; valideringens
+uændrede `is-complete`-klasse toner det blå fyld frem over 250 ms. Konturer
+og fyld ligger i samme SVG, så tilstandsændringer ikke flytter layoutet.
+Reduced motion fjerner overgangen. Den eksisterende live-status er bevaret.
+Den gamle PNG er ikke længere refereret fra bookingsiden; filen er bevaret.
+
+Bookingens ydre grid reserverer 80 px på desktop, 56 px på tablet og 32 px
+på mobil. Den indre visning er sticky med 16 px topafstand og en højde på
+højst 440 px (320 px på mobil), begrænset af `100svh - 32px` med vh-fallback.
+Navigationen er ikke fastgjort. Sticky-forældrene har ikke overflow-regler;
+skovbilledets overflow ligger på en separat søskende. Kolonnen afgrænses af
+bookingsektionen, som slutter før footeren. Formularpanelerne stables ved
+1100 px, og tiderne fordeles på to kolonner ved højst 360 px. Kalenderens
+syv kolonner bevares.
+
+Kontrol i dette trin:
+
+- Den faktiske booking.js består igen den midlertidige DOM-logiktest for
+  seks uafhængige trin, anden rækkefølge, gentagne valg, ugyldige/slettede
+  værdier, +8, vilkår, opsummering, priser og ret oplysninger.
+- Formularens og opsummeringens HTML er sammenlignet med Git HEAD og er
+  identisk. booking.js er uændret. HTML-tagbalance, unikke ID'er, 12 SVG-use-
+  referencer til ét symbol, seks data-step-attributter og én live-status består.
+- JavaScript-syntaks og git diff --check består. CSS er inspiceret for sticky,
+  250 ms-overgang, reduced motion og fjernelse af gammel billedpositionering.
+- Beregning ud fra CSS ved 320/375/768/1440 px giver formularbredder på
+  248/303/648/1168 px og datofelter på cirka 30,6/37,3/78,3/57,7 px i bredden.
+  Datofelterne er mindst 44 px høje. Det er beregninger, ikke browsermålinger.
+  Højdeberegningen er kontrolleret ved 160/320/667/900 px skærmhøjde.
+- Browserinventaret returnerede ingen apps/browsere og fejl ved native
+  opstart. Faktisk sticky-start/-stop, footergrænse, visuel SVG-visning,
+  overflow, zoom, reduceret bevægelse, tastatur og skærmlæserannoncering
+  er derfor ikke testet i browser. Kontrollen ovenfor erstatter ikke dette.
+
+Ingen ændring i vilkår, prislogik, kontaktfelternes valideringsstil eller
+prototypeafslutning. B12 om radiomarkeringer berøres ikke af dette trin.
+Ingen commit, push eller deployment.
+
+
+### Fodspor i Figma-stil uden startkonturer
+
+Den seneste ændring erstatter SVG-konturerne med et transparent rastermotiv
+baseret på Figma-assetet `images/booking-fodspor.png`. Den tidligere beslutning
+om synlige konturer fra starten er erstattet efter brugerens ønske: alle seks
+pladser er nu visuelt tomme, indtil det tilhørende formularpunkt er gyldigt.
+Sticky-kolonnen, skiftevis spejling, de seks data-step-nøgler, live-status,
+250 ms-fremtoning og reduced motion er bevaret. Formular og opsummering er
+uændrede, og booking.js er ikke ændret.
+
+Nyt asset: `images/booking-fodspor-fritlagt.png` (1024 × 1536, RGBA).
+Fremstillet med det indbyggede imagegen-værktøj i redigeringstilstand.
+Prompt: Fritlæg kun det største støvleaftryk nederst til højre i det
+oprindelige Figma-billede; fjern de fire andre aftryk og den sorte baggrund;
+bevar sålmønster, hæl, isblå/cyan tekstur, fine partikler og diskret glød;
+ret aftrykket op og centrér det med lille transparent margen. Brug ægte
+alfa, også i mellemrummene; ingen tekst, nye objekter eller konturversion.
+Det er en AI-bearbejdet variant, ikke en pixelidentisk beskæring.
+
+Kontrol: PNG-alfa er aflæst direkte; spændet er 0–254 og 848.054 af
+1.572.864 pixels er helt transparente. Hjørnepixel har alfa 0. Motivet er
+visuelt inspiceret som asset. Seks billedreferencer, tomme alt-tekster,
+fravær af konturer, uændret formular/opsummering, CSS-startopacitet,
+250 ms og reduced motion er kontrolleret. Den midlertidige test af den
+faktiske booking.js i simuleret DOM består igen, inklusive ryddede og
+ugyldige værdier, gentagne valg og prisberegning. git diff --check består.
+Visning på selve websiden er ikke browserverificeret i dette trin.
