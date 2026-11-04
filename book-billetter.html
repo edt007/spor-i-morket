@@ -52,7 +52,15 @@
         </div>
         <fieldset class="booking-participants" id="participants-group" aria-describedby="participants-error">
           <legend>Hvor mange er i?</legend>
+          <div class="booking-participant-layout">
           <div class="booking-counts"><label class="booking-choice"><input type="radio" name="participants" value="2" required aria-describedby="participants-error"><span>2</span></label><label class="booking-choice"><input type="radio" name="participants" value="3" required aria-describedby="participants-error"><span>3</span></label><label class="booking-choice"><input type="radio" name="participants" value="4" required aria-describedby="participants-error"><span>4</span></label><label class="booking-choice"><input type="radio" name="participants" value="5" required aria-describedby="participants-error"><span>5</span></label><label class="booking-choice"><input type="radio" name="participants" value="6" required aria-describedby="participants-error"><span>6</span></label><label class="booking-choice"><input type="radio" name="participants" value="7" required aria-describedby="participants-error"><span>7</span></label><label class="booking-choice"><input type="radio" name="participants" value="8" required aria-describedby="participants-error"><span>8</span></label><button class="booking-large-group" type="button" aria-expanded="false" aria-controls="large-group-contact">+8<span class="sr-only">: Kontakt os om flere end 8 deltagere</span></button></div>
+          <div class="booking-panel booking-price">
+            <p class="booking-price-heading">Pris: 49,- /stk.</p>
+            <p id="booking-price-label">Din pris:</p>
+            <output id="booking-price" aria-labelledby="booking-price-label" aria-live="polite" aria-atomic="true">Vælg antal billetter</output>
+            <p>Betaling vil blive opkrævet ved ankomst. Booking skal aflyses senest 24 timer før starttidspunkt.</p>
+          </div>
+          </div>
           <p class="booking-error" id="participants-error" hidden></p>
           <p class="booking-panel" id="large-group-contact" hidden>Større grupper skal kontakte os: <a href="tel:+4522222222">+45 22 22 22 22</a> eller <a href="mailto:kontakt@sporgennemmorket.dk">kontakt@sporgennemmorket.dk</a>. Vælg 2–8 deltagere for at fortsætte almindelig booking.</p>
         </fieldset>
@@ -66,6 +74,7 @@
             <legend>Bookingvilkår:</legend>
             <div class="booking-panel">
               <div><label class="booking-term"><input type="checkbox" id="booking-term1" name="term1" required aria-describedby="term1-error"><span>Mine kontaktoplysninger er korrekte og jeg giver samtykke til, at modtage bookingbekræftelse på mail samt påmindelse på telefon.</span></label><p class="booking-error" id="term1-error" hidden></p></div><div><label class="booking-term"><input type="checkbox" id="booking-term2" name="term2" required aria-describedby="term2-error"><span>Jeg bekræfter booking- og aflysningspolitik.</span></label><p class="booking-error" id="term2-error" hidden></p></div><div><label class="booking-term"><input type="checkbox" id="booking-term3" name="term3" required aria-describedby="term3-error"><span>Jeg er indforstået med, at jeg hæfter for booking, medmindre jeg afbestiller op til 24 timer før.</span></label><p class="booking-error" id="term3-error" hidden></p></div>
+              <div><label class="booking-term" for="booking-term4"><input type="checkbox" id="booking-term4" name="term4" required aria-describedby="term4-error"><span>Jeg bekræfter handelsbetingelser og privatlivspolitik.</span></label><p class="booking-error" id="term4-error" hidden></p></div>
               <p class="booking-notice">Den fulde booking- og aflysningspolitik er endnu ikke tilgængelig i prototypen. Afkrydsningerne demonstrerer formularen; der sendes ingen mail eller telefonpåmindelse.</p>
               <button class="button button-primary" type="submit" disabled>Book billetter nu</button>
             </div>

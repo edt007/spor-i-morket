@@ -9,7 +9,9 @@
   const largeGroupButton = form.querySelector('.booking-large-group');
   const largeGroupContact = document.querySelector('#large-group-contact');
   const steps = ['date', 'time', 'participants', 'name', 'phone', 'email'];
-  const terms = ['term1', 'term2', 'term3'];
+  const terms = ['term1', 'term2', 'term3', 'term4'];
+  const ticketPrice = 49;
+  const priceOutput = document.querySelector('#booking-price');
   let attempted = false;
   let largeGroup = false;
   let previousCount = 0;
@@ -19,6 +21,9 @@
     const fields = controls(key);
     return fields[0].type === 'radio' ? fields.find(field => field.checked)?.value || '' : fields[0].value.trim();
   }
+  // B12: Samme beregning i prisboksen og bookingoversigten.
+  function totalPrice() { return valid('participants') ? ticketPrice * Number(value('participants')) : null; }
+  function formattedPrice() { return `${totalPrice()} kr.`; }
   function valid(key) {
     const text = value(key);
     switch (key) {
@@ -43,7 +48,8 @@
     email: 'Indtast en mailadresse i et gyldigt format, for eksempel navn@eksempel.dk.',
     term1: 'Bekræft kontaktoplysninger og samtykke.',
     term2: 'Afkryds bekræftelsen af booking- og aflysningspolitikken i prototypen.',
-    term3: 'Afkryds vilkåret om afbestilling i prototypen.'
+    term3: 'Afkryds vilkåret om afbestilling i prototypen.',
+    term4: 'Bekræft handelsbetingelser og privatlivspolitik i prototypen.'
   };
   function focusField(key) { controls(key)[0].focus(); }
   function renderErrors() {
@@ -71,6 +77,8 @@
     return errors;
   }
   function update() {
+    const priceText = largeGroup ? 'Kontakt os for større grupper' : totalPrice() === null ? 'Vælg antal billetter' : formattedPrice();
+    if (priceOutput.textContent !== priceText) priceOutput.textContent = priceText;
     let count = 0;
     steps.forEach(key => {
       const complete = valid(key);
@@ -111,7 +119,7 @@
     document.querySelector('#summary-date').textContent = `${Number(value('date').slice(-2))}. oktober 2027`;
     document.querySelector('#summary-time').textContent = `Kl. ${value('time')}`;
     document.querySelector('#summary-participants').textContent = value('participants');
-    document.querySelector('#summary-price').textContent = `${49 * Number(value('participants'))} kr.`;
+    document.querySelector('#summary-price').textContent = formattedPrice();
     form.hidden = true;
     summary.hidden = false;
     document.querySelector('#summary-title').focus();
@@ -120,6 +128,21 @@
     summary.hidden = true;
     form.hidden = false;
     focusField('date');
+  });
+  // Reset-hændelsen kommer før browseren nulstiller felterne.
+  form.addEventListener('reset', () => {
+    attempted = false;
+    largeGroup = false;
+    largeGroupContact.hidden = true;
+    largeGroupButton.setAttribute('aria-expanded', 'false');
+    summary.hidden = true;
+    form.hidden = false;
+    requestAnimationFrame(() => {
+      form.querySelectorAll('[aria-invalid]').forEach(field => field.removeAttribute('aria-invalid'));
+      form.querySelectorAll('.booking-error').forEach(error => { error.hidden = true; error.textContent = ''; });
+      errorSummary.hidden = true;
+      update();
+    });
   });
   // Genberegn også ved tilbage-navigation og browserens autofuldførelse.
   window.addEventListener('pageshow', update);

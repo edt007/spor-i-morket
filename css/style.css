@@ -368,3 +368,14 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
 .booking-body .booking-term > span { min-width: 0; overflow-wrap: anywhere; }
 .booking-body .booking-notice, .booking-body .booking-error, .booking-error-summary a { overflow-wrap: anywhere; }
 .booking-body .button { max-width: 100%; }
+
+/* B12: Prisboksen ligger i formularen, adskilt fra fodsporskolonnen. */
+.booking-participant-layout { display: grid; grid-template-columns: minmax(0, 1fr) 304px; gap: 32px; align-items: start; margin-top: 28px; }
+.booking-participant-layout .booking-counts { margin-top: 0; }
+.booking-price { padding: 19px 21px 30px; font: 400 20px/1.5 Poppins, sans-serif; color: rgb(247 243 232 / 80%); overflow-wrap: anywhere; }
+.booking-price .booking-price-heading { font-size: 32px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+.booking-price output { display: block; margin-block: 4px 12px; }
+@media (max-width: 1100px) {
+  .booking-participant-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .booking-price { width: 304px; max-width: 100%; }
+}
