@@ -260,6 +260,7 @@ h1 { font-family: var(--display-font); font-size: 96px; line-height: 102px; font
 }
 @media (max-width: 600px) {
   .practical-intro { margin-top: 32px; }
+  .practical-faq-image { justify-self: center; }
   .practical-info .info-cards { margin-top: 40px; }
   .practical-faq > h2 { font-size: 64px; line-height: 1.1; }
   .faq-list { gap: 20px; }
